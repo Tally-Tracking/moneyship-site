@@ -92,6 +92,25 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline
 .split.small { font-size: 14px; margin-top: -4px; }
 .split .pct { color: var(--orange); font-weight: 600; }
 
+.savecard { border: 2px solid transparent; border-radius: 22px; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(90deg, #10B981, #06B6D4) border-box; box-shadow: var(--shadow); padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.savecard .row1 { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.savecard h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.savecard .amt { font-size: 19px; font-weight: 700; }
+.flight .fill.save { background: linear-gradient(90deg, #10B981, #06B6D4); }
+.flight .planet { position: absolute; right: 0; top: 0; width: 32px; height: 32px; }
+.split .pct.save { color: var(--green); }
+
+/* Savings */
+.saving { display: flex; flex-direction: column; gap: 1.6rem; }
+.saving-head { display: flex; flex-direction: column; gap: 0.8rem; max-width: 46rem; }
+.saving-head h2 { margin: 0; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; letter-spacing: -0.5px; }
+.saving-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
+.saving-item { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 1.3rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.saving-item h3 { margin: 0; font-size: 1.15rem; }
+.saving-item p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--muted); }
+.icon.save { color: var(--green); }
+.saving-item .icon:not(.space) { box-shadow: none; background: var(--bg); }
+
 /* Figures */
 .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
 .figure { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.4rem; }
