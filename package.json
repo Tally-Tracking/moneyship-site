@@ -1,0 +1,9 @@
+{
+  "name": "moneyship-site",
+  "private": true,
+  "description": "The MoneyShip website: privacy, terms, support, account deletion and the account-email pages",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
