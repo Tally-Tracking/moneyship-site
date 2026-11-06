@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512" role="img" aria-label="MoneyShip">
+<g shape-rendering="crispEdges"><rect x="9" y="21" width="2" height="2" fill="#F97316"></rect><rect x="6" y="24" width="2" height="2" fill="#FB923C"></rect><rect x="4" y="27" width="1" height="1" fill="#FDBA74"></rect></g>
+<defs>
+<linearGradient id="mh" x1="30" y1="50" x2="88" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1E63D6"></stop><stop offset="1" stop-color="#34C759"></stop></linearGradient>
+<linearGradient id="mk" x1="30" y1="50" x2="60" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1847A8"></stop><stop offset="1" stop-color="#1E7FB0"></stop></linearGradient>
+<linearGradient id="mf" x1="37" y1="50" x2="14" y2="50" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FB923C"></stop><stop offset="1" stop-color="#F97316"></stop></linearGradient>
+</defs>
+<g transform="translate(4.76 1.24) scale(0.26) rotate(-45 50 50)">
+<path d="M36.5 44 Q25 46 14 50 Q25 54 36.5 56 Z" fill="url(#mf)"></path>
+<path d="M36.5 46.5 Q29 48 22 50 Q29 52 36.5 53.5 Z" fill="#FFD23F"></path>
+<path d="M56 40 L35 20.5 Q30.5 18.5 30.5 23.5 L37 41 Z" fill="url(#mk)"></path>
+<path d="M56 60 L35 79.5 Q30.5 81.5 30.5 76.5 L37 59 Z" fill="url(#mk)"></path>
+<path d="M88 50 C80 40.5 64 38 48 39.5 L36 41 Q31 50 36 59 L48 60.5 C64 62 80 59.5 88 50 Z" fill="url(#mh)"></path>
+<path d="M88 50 C80 40.5 64 38 48 39.5 L36 41 Q34 45.5 34.2 50 Z" fill="#FFFFFF" fill-opacity="0.14"></path>
+<circle cx="63" cy="50" r="6.2" fill="#0A0E27"></circle>
+<circle cx="63" cy="50" r="4.9" fill="#FFC531"></circle>
+<circle cx="63" cy="50" r="3.3" fill="none" stroke="#C27C0E" stroke-width="1"></circle>
+<circle cx="61.6" cy="48.6" r="1.1" fill="#FFF1A8"></circle>
+</g>
+</svg>

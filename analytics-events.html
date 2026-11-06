@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyShip - Analytics events</title>
+    <meta name="description" content="Every usage event the MoneyShip app sends to its analytics provider, what each one carries, and how to turn analytics off.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="site-header">
+            <a class="lockup" href="./" aria-label="MoneyShip home">
+                <picture>
+                    <source srcset="images/moneyship-mark-dark.svg" media="(prefers-color-scheme: dark)">
+                    <img src="images/moneyship-mark.svg" alt="">
+                </picture>
+                <span class="wordmark" aria-hidden="true"><span class="money">Money</span><span class="ship">Ship</span></span>
+            </a>
+        </header>
+
+        <main>
+            <h1>Analytics events</h1>
+            <p class="muted">Last updated: 6 November 2026</p>
+            <p class="lead">This is the full list of usage events the MoneyShip app sends to its analytics provider, PostHog (EU Cloud, Frankfurt), while analytics is on. Our <a href="privacy.html">privacy policy</a> links here, and we update this page whenever an event is added, removed or changed. MoneyShip was previously called Tally.</p>
+
+            <h2>What we collect</h2>
+            <p>Usage events that describe how people use MoneyShip: which screens they open, which features they use and where they stop in a flow. We use them to decide what to build next and what to improve.</p>
+
+            <h2>What we never collect</h2>
+            <ul class="plain">
+                <li>The names of your bills, debts or savings goals</li>
+                <li>Amounts, balances, totals or any money figure</li>
+                <li>Account numbers, sort codes or card numbers</li>
+                <li>Your email address, phone number or name</li>
+                <li>Anything you type into the app</li>
+                <li>Your phone's advertising ID or hardware identifiers</li>
+                <li>Which free debt-advice service you open</li>
+            </ul>
+            <p>If you spot anything below that breaks these rules, that's a bug: please email <a href="mailto:moneyshipapp@gmail.com">moneyshipapp@gmail.com</a> and we'll fix it.</p>
+
+            <h2>Turning it off</h2>
+            <p>In the app, open <strong>Settings</strong> and turn off <strong>Share usage analytics</strong>, at any time. While it's off, the app doesn't start the analytics software at all, so it sends nothing to PostHog. To delete events already collected, email <a href="mailto:moneyshipapp@gmail.com">moneyshipapp@gmail.com</a> from the address linked to your MoneyShip account.</p>
+
+            <h2>How events are linked</h2>
+            <ul class="plain">
+                <li><strong>A random ID:</strong> on first launch the app creates a random ID and keeps it in your phone's secure storage (the iPhone's Keychain, Android's encrypted storage). Events carry it. It isn't your email, your name or your phone's advertising ID.</li>
+                <li><strong>If you sign in:</strong> the random ID is linked to your MoneyShip account ID, a random code, never your email address, so one person on two phones counts as one.</li>
+                <li><strong>If you sign out:</strong> new events carry the random ID again and aren't linked to your account until you sign in.</li>
+                <li><strong>If you delete your data</strong> (Delete Account &amp; All Data, or Clear Local Data): the app forgets the random ID and makes a new one, so nothing sent afterwards is linked to the deleted data or your account.</li>
+            </ul>
+
+            <h2>How long we keep them</h2>
+            <p>12 months, then they're deleted automatically.</p>
+
+            <h2>Details on every event</h2>
+            <p>The app adds these to every event:</p>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Detail</th><th>What it is</th></tr></thead>
+                <tbody>
+                    <tr><td><code>platform</code></td><td>iPhone or Android</td></tr>
+                    <tr><td><code>app_version</code></td><td>The app's version, for example 1.0</td></tr>
+                    <tr><td><code>distribution</code></td><td>Where the app came from: the App Store, TestFlight, Google Play, or a test build. It lets us leave testers out of the numbers</td></tr>
+                </tbody>
+            </table></div>
+            <p>The analytics software also adds basic details about your phone and the app by itself, such as the phone's model, operating system, language and time zone. <a href="privacy.html">Section 5 of the privacy policy</a> lists them all.</p>
+
+            <h2>The events</h2>
+
+            <h3>Opening and using the app</h3>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>app_launched</code></td><td>The app starts</td><td>Whether it was a fresh start; your phone's language setting; how many active debts you have, as a range (0, 1, 2, 3, or 4 or more), never an amount</td></tr>
+                    <tr><td><code>session_started</code></td><td>You come back to the app after more than 30 seconds away</td><td>Minutes since you last used it; how many active debts, as a range</td></tr>
+                    <tr><td><code>app_backgrounded</code></td><td>You leave the app</td><td>How long you used it, in seconds</td></tr>
+                    <tr><td><code>tab_selected</code></td><td>You change tab</td><td>Which tab you went to and from: Plan, Debts, Savings, Bills or Tools</td></tr>
+                    <tr><td><code>screen_viewed</code></td><td>A screen other than a tab opens, such as Settings, the take-home calculator, a form or Free help</td><td>Which screen; for the calculator, whether it's the UK or custom version. Opening Free help sends this once and nothing else: never which service you open</td></tr>
+                    <tr><td><code>notification_tapped</code></td><td>You tap one of the app's reminders (Android only for now)</td><td>Which kind: bill reminders, missed bill alerts or debt reminders</td></tr>
+                    <tr><td><code>deep_link_opened</code></td><td>The app is opened from a link (iPhone only for now)</td><td>The link's address without anything after a "?"</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>Adding and updating</h3>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>debt_added</code></td><td>A debt is saved</td><td>How it was added (by hand)</td></tr>
+                    <tr><td><code>debt_payment_logged</code></td><td>A payment is recorded on a debt, by you or by auto-pay</td><td>Who recorded it (you or auto-pay); the payment's share of the balance, as a range (under 5%, 5 to 25%, 25 to 50%, 50 to 99%, or all of it); whether it crossed 25, 50, 75 or 100% paid off</td></tr>
+                    <tr><td><code>debt_strategy_changed</code></td><td>You switch between snowball and avalanche</td><td>Which one you switched from and to</td></tr>
+                    <tr><td><code>debt_budget_set</code></td><td>You save the monthly money for your debts</td><td>How you worked it out (one number, one outgoings figure, or the cost lines); whether it's per month, week, fortnight or four weeks; whether you said your outgoings include your debt payments. Never the amount, and never whether it covers your payments</td></tr>
+                    <tr><td><code>savings_goal_added</code></td><td>A savings goal is saved</td><td>How it was added</td></tr>
+                    <tr><td><code>savings_transacted</code></td><td>Money is added to or taken from a savings goal</td><td>Whether it was added, taken out or saved automatically (Android only); whether it crossed 25, 50, 75 or 100% of the goal</td></tr>
+                    <tr><td><code>bill_added</code></td><td>A bill is saved (only while bill tracking is on)</td><td>How it was added; how often it repeats</td></tr>
+                    <tr><td><code>bill_marked_paid</code></td><td>A bill is marked paid, by you or by auto-pay</td><td>How (one bill, several at once, or auto-pay); how often it repeats; whether it's on auto-pay; for several at once, how many</td></tr>
+                    <tr><td><code>snapshot_viewed</code></td><td>You open the "vs last month" card for bills</td><td>Whether spending went up, down or stayed about the same</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>Celebrations</h3>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>celebration_finished</code></td><td>A debt celebration closes: the 25, 50 and 75% checkpoints, and the 100% "final blow"</td><td>Which one (25, 50, 75 or 100); how it closed: for the checkpoints, a tap or by itself; for the final blow, held to fire, tapped, fired by itself, or skipped. Never the debt's name, type or an amount</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>Accounts, settings and problems</h3>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>auth_state_changed</code></td><td>You sign in or out</td><td>Signed in or out; how (Apple, Google, email or none)</td></tr>
+                    <tr><td><code>analytics_consent_changed</code></td><td>You turn Share usage analytics on or off</td><td>On or off; where (onboarding or Settings)</td></tr>
+                    <tr><td><code>setting_changed</code></td><td>You turn a Settings switch on or off</td><td>Which switch (dark mode, bill tracking, bill reminders, missed bill alerts or debt reminders); on or off</td></tr>
+                    <tr><td><code>notification_permission_answered</code></td><td>Your phone asks whether MoneyShip may send notifications, and you answer</td><td>Allowed or not; where the question came from</td></tr>
+                    <tr><td><code>sync_failed</code></td><td>Backing up or syncing your data fails</td><td>The kind of problem (network, timeout, sign-in, conflict, server or other); whether it was sending or receiving. Never the error's text</td></tr>
+                </tbody>
+            </table></div>
+        </main>
+
+        <footer class="site-footer">
+            <nav aria-label="MoneyShip pages">
+                <a href="./">Home</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="support.html">Support</a>
+                <a href="mailto:moneyshipapp@gmail.com">moneyshipapp@gmail.com</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

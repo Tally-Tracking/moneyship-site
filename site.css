@@ -1,0 +1,93 @@
+/* The home page, the analytics event list and 404 (the legal and account
+   pages keep their own styles). Colours are the app's tokens
+   (the debt-first design tokens); the name follows the brand guide. */
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DMSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DMSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+:root {
+    color-scheme: light dark;
+    --bg: #F1F5F9;
+    --card: #FFFFFF;
+    --text: #0F172A;
+    --muted: #475569;
+    --primary: #0E7490;
+    --line: rgba(15, 23, 42, 0.10);
+    --money: #0F172A;
+    --ship: linear-gradient(90deg, #1E63D6, #34C759);
+    --focus: #1E63D6;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0A0E27;
+        --card: #191F3D;
+        --text: #E2E8F0;
+        --muted: #94A3B8;
+        --primary: #00D4FF;
+        --line: rgba(255, 255, 255, 0.10);
+        --money: #FFFFFF;
+        --ship: linear-gradient(90deg, #3B82F6, #4ADE80);
+        --focus: #00D4FF;
+    }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0 16px;
+    -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+a { color: var(--primary); }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+
+/* The lockup: the mark at about 1.7 times the wordmark's height (brand.md). */
+.site-header { padding: 28px 0 8px; }
+.lockup { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.lockup img { width: 54px; height: 54px; }
+.wordmark { font-weight: 700; font-size: 32px; letter-spacing: -0.03em; line-height: 1; }
+.wordmark .money { color: var(--money); }
+.wordmark .ship {
+    background: var(--ship);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.tagline { color: var(--muted); margin-top: 10px; font-size: 16px; }
+
+main { padding: 32px 0 48px; }
+.eyebrow { color: var(--primary); font-weight: 700; letter-spacing: 0.08em; font-size: 13px; text-transform: uppercase; }
+h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 12px 0 16px; }
+h2 { font-size: 22px; margin: 36px 0 12px; }
+h3 { font-size: 17px; margin: 20px 0 6px; }
+p { margin: 8px 0; }
+.lead { font-size: 18px; max-width: 640px; }
+.muted { color: var(--muted); }
+.promise { font-weight: 700; margin-top: 16px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 20px; }
+.card h2 { font-size: 18px; margin: 0 0 6px; }
+
+ul.plain { padding-left: 20px; margin: 8px 0; }
+ul.plain li { margin: 4px 0; }
+.table-wrap { overflow-x: auto; margin: 8px 0 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; overflow-wrap: anywhere; }
+
+.site-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 15px; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; }
+.site-footer nav a { padding: 6px 0; }
