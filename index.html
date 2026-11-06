@@ -4,57 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyShip - Pay off debt and save</title>
-    <meta name="description" content="MoneyShip is a free UK app for paying off debt: your debt-free date, avalanche and snowball side by side, and reminders before every payment. No ads, and it never lends.">
+    <meta name="description" content="MoneyShip is a free UK app for getting out of debt: your debt-free date worked out properly, avalanche and snowball side by side, and reminders before every payment. No ads, and it never lends.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="wrap">
-        <header class="site-header">
-            <a class="lockup" href="./" aria-label="MoneyShip home">
-                <picture>
-                    <source srcset="images/moneyship-mark-dark.svg" media="(prefers-color-scheme: dark)">
-                    <img src="images/moneyship-mark.svg" alt="">
-                </picture>
-                <span class="wordmark" aria-hidden="true"><span class="money">Money</span><span class="ship">Ship</span></span>
-            </a>
-            <p class="tagline">Blast off to a debt-free space</p>
-        </header>
+<div class="page">
+    <header class="top">
+        <a class="brand" href="./" aria-label="MoneyShip home">
+            <img src="favicon.svg" alt="">
+            <span class="wordmark" aria-hidden="true">Money<span class="ship">Ship</span></span>
+        </a>
+        <nav aria-label="Site">
+            <a href="#how">How it works</a>
+            <a href="#help">Free debt help</a>
+            <a href="support.html">Support</a>
+        </nav>
+    </header>
 
-        <main>
-            <p class="eyebrow">The UK app for getting out of debt</p>
-            <h1>Your debt-free date, worked out properly.</h1>
-            <p class="lead">Credit cards, 0% deals, pay-in-3, loans, car finance and council tax, all in one plan. Avalanche and snowball side by side, reminders before every payment. Free, for good.</p>
-            <p class="promise">No ads. No deals. MoneyShip never lends.</p>
-            <p class="muted">Coming soon to iPhone and Android.</p>
-
-            <div class="cards">
-                <section class="card">
-                    <h2>Your plan, free for good</h2>
-                    <p>Your debt-free date, avalanche and snowball side by side, a monthly budget helper and payment reminders. You choose; MoneyShip never pushes.</p>
-                </section>
-                <section class="card">
-                    <h2>Free help, one tap away</h2>
-                    <p>StepChange, National Debtline, Citizens Advice and MoneyHelper give free, impartial debt advice. MoneyShip links to them for everyone, never behind a paywall.</p>
-                </section>
-                <section class="card">
-                    <h2>Your data stays yours</h2>
-                    <p>MoneyShip works without an account. Sign in only if you want your data backed up and synced between your phones. We never sell your data.</p>
-                </section>
+    <main style="display: flex; flex-direction: column; gap: 3rem">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">The UK app for getting out of debt</span>
+                <h1>Your debt-free date, worked out properly.</h1>
+                <p class="lead">Credit cards, 0% deals, pay-in-3, loans, car finance and council tax, all in one plan. Avalanche and snowball side by side, reminders before every payment. Free, for good.</p>
+                <p class="tagline">Blast off to a debt-free space</p>
+                <div class="stores" aria-label="Coming soon to the App Store and Google Play">
+                    <span class="store"><small>Coming soon to the</small><strong>App Store</strong></span>
+                    <span class="store"><small>Coming soon to</small><strong>Google Play</strong></span>
+                </div>
+                <p class="promise"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>No ads. No deals. MoneyShip never lends.</p>
             </div>
-        </main>
+            <div class="phone-wrap" aria-hidden="true">
+                <div class="phone">
+                    <div class="card plan">
+                        <span class="k">DEBT-FREE BY</span>
+                        <span class="date">March 2029</span>
+                        <span class="sub">2 years 5 months · Avalanche · <span class="mono">£450</span> a month</span>
+                        <div class="meter"><span></span></div>
+                        <div class="split"><span class="paid"><span class="mono">£6,155</span> paid off</span><span class="togo"><span class="mono">£11,280</span> to go</span></div>
+                    </div>
+                    <div class="debtcard">
+                        <div class="row1"><h3>Store card</h3><span class="mono amt">£480.00</span></div>
+                        <div class="badges"><span class="badge">Credit Card</span><span class="badge focus">Focus</span><span class="apr">29.9% APR</span></div>
+                        <div class="flight">
+                            <div class="bar">
+                                <span class="fill"></span>
+                                <span class="dot hit" style="left: calc(25% - 3px)"></span><span class="dot" style="left: calc(50% - 3px)"></span><span class="dot" style="left: calc(75% - 3px)"></span>
+                                <img class="pix ship" src="images/ship.png" alt="">
+                            </div>
+                            <img class="pix trophy" src="images/trophy-satellite.png" alt="">
+                        </div>
+                        <div class="split small"><span class="togo">of £800</span><span class="pct">40% paid off</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <footer class="site-footer">
-            <p>MoneyShip doesn't lend, take commissions or sell your data. Need help now? <a href="https://www.stepchange.org/">StepChange</a>, <a href="https://nationaldebtline.org/">National Debtline</a>, <a href="https://www.citizensadvice.org.uk/debt-and-money/">Citizens Advice</a> and <a href="https://www.moneyhelper.org.uk/en/money-troubles">MoneyHelper</a> give free, impartial debt advice.</p>
-            <nav aria-label="MoneyShip pages">
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
-                <a href="support.html">Support</a>
-                <a href="delete-account.html">Delete your account</a>
-                <a href="mailto:moneyshipapp@gmail.com">moneyshipapp@gmail.com</a>
-            </nav>
-        </footer>
-    </div>
+        <section class="figures" aria-label="UK debt in numbers">
+            <div class="card figure"><span class="mono n">£81.6bn</span><span class="t">owed on UK credit cards in June 2026</span></div>
+            <div class="card figure"><span class="mono n">24.71%</span><span class="t">average interest on card balances that charge it</span></div>
+            <div class="card figure"><span class="mono n">1.95%</span><span class="t">average interest on instant-access savings</span></div>
+        </section>
+        <p class="source">Figures: The Money Charity, August 2026.</p>
+
+        <section class="features" id="how" aria-label="What you get">
+            <div class="feature">
+                <span class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"></path><path d="M5 4h12l-2.5 4.5L17 13H5"></path></svg></span>
+                <h2>Your plan, free for good</h2>
+                <p>Your debt-free date, avalanche and snowball side by side, a monthly budget helper and payment reminders. You choose; MoneyShip never pushes.</p>
+            </div>
+            <div class="feature">
+                <span class="icon space"><img class="pix" src="images/shipmate.png" alt="" width="32" height="32"></span>
+                <h2>Shipmate <span class="soon">COMING LATER</span></h2>
+                <p>A helper that answers questions about your own numbers, adds a debt from a photo of a statement and tries what-ifs. Information, never advice.</p>
+            </div>
+            <div class="feature" id="help">
+                <span class="icon help"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><path d="m5.6 5.6 3.6 3.6"></path><path d="m14.8 14.8 3.6 3.6"></path><path d="m18.4 5.6-3.6 3.6"></path><path d="m9.2 14.8-3.6 3.6"></path></svg></span>
+                <h2>Free help, one tap away</h2>
+                <p><a href="https://www.stepchange.org/">StepChange</a>, <a href="https://nationaldebtline.org/">National Debtline</a>, <a href="https://www.citizensadvice.org.uk/debt-and-money/">Citizens Advice</a>, <a href="https://www.moneyhelper.org.uk/en/money-troubles">MoneyHelper</a> and <a href="https://www.adviceni.net/">Advice NI</a> give free, impartial debt advice. MoneyShip never takes money for sending you anywhere.</p>
+            </div>
+        </section>
+
+        <section class="band" id="band" aria-label="When you win">
+            <button class="pause" id="pause" type="button" aria-pressed="false" aria-label="Pause the animation" hidden>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="pause-icon"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+            </button>
+            <div class="band-top">
+                <div class="band-copy">
+                    <span class="arc">WHEN YOU WIN</span>
+                    <h2>Every debt you clear becomes a trophy.</h2>
+                    <p>Checkpoints at 25, 50 and 75%, a boss for every kind of debt, and a Trophy Room for everything you've cleared. The rest of MoneyShip stays calm and clear.</p>
+                </div>
+                <ul class="shelf" id="shelf" aria-label="Some of the trophies">
+                    <li><img class="pix" src="images/trophy-little-alien.png" alt="Little Alien trophy" width="64" height="64"></li>
+                    <li><img class="pix" src="images/trophy-rocket.png" alt="Rocket trophy" width="64" height="64"></li>
+                    <li><img class="pix" src="images/trophy-satellite.png" alt="Satellite trophy" width="80" height="80"></li>
+                    <li><img class="pix" src="images/trophy-space-station.png" alt="Space Station trophy" width="96" height="96"></li>
+                    <li><img class="pix" src="images/trophy-spiral-galaxy.png" alt="Spiral Galaxy trophy" width="80" height="80"></li>
+                </ul>
+            </div>
+            <div class="lane" id="lane" aria-hidden="true">
+                <div class="bar">
+                    <span class="fill" id="fill"></span>
+                    <span class="dot" style="left: 25%"></span><span class="dot" style="left: 50%"></span><span class="dot" style="left: 75%"></span>
+                    <img class="pix ship" id="ship" src="images/ship.png" alt="">
+                </div>
+                <img class="pix goal" id="goal" src="images/trophy-little-alien.png" alt="">
+            </div>
+        </section>
+    </main>
+
+    <footer class="foot">
+        <p>MoneyShip doesn't lend, take commissions or sell your data. Need help now? StepChange, National Debtline, Citizens Advice and MoneyHelper give free, impartial debt advice.</p>
+        <nav aria-label="MoneyShip pages">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+            <a href="delete-account.html">Delete your account</a>
+            <a href="mailto:moneyshipapp@gmail.com">Contact</a>
+        </nav>
+    </footer>
+</div>
+<script src="home.js"></script>
 </body>
 </html>

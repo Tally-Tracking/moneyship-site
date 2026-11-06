@@ -1,0 +1,145 @@
+/* The home page only (index.html). Built from the MoneyShip design canvas's
+   "Landing" board; the colours are the app's light and dark tokens. */
+@font-face { font-family: "DM Sans"; src: url("fonts/DMSans-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("fonts/DMSans-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "DM Sans"; src: url("fonts/DMSans-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Silkscreen"; src: url("fonts/Silkscreen-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+:root {
+    color-scheme: light dark;
+    --bg: #F1F5F9; --card: #FFFFFF; --sv2: #E8ECF1; --text: #0F172A; --muted: #475569;
+    --line: rgba(15, 23, 42, 0.10); --primary: #0E7490; --green: #047857; --orange: #C2410C;
+    --track: #E5E7EB; --dot: #C3C9D2; --focusBg: #FEF3C7; --focusText: #92400E;
+    --store: #0F172A; --storeText: #FFFFFF; --frame: #0F172A;
+    --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 12px 28px -18px rgba(15, 23, 42, 0.24);
+    --ship: linear-gradient(90deg, #1E63D6, #34C759); --focus: #1E63D6;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0A0E27; --card: #191F3D; --sv2: #283058; --text: #E2E8F0; --muted: #94A3B8;
+        --line: rgba(255, 255, 255, 0.10); --primary: #00D4FF; --green: #34D399; --orange: #FB923C;
+        --track: #2A3158; --dot: #4A5384; --focusBg: rgba(245, 158, 11, 0.16); --focusText: #FCD34D;
+        --store: #E2E8F0; --storeText: #0A0E27; --frame: #2A3158;
+        --shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.8);
+        --ship: linear-gradient(90deg, #3B82F6, #4ADE80); --focus: #00D4FF;
+    }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+a { color: var(--primary); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+.mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+.arc { font-family: Silkscreen, monospace; font-weight: 400; letter-spacing: 2px; }
+.pix { image-rendering: pixelated; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.page { max-width: 1180px; margin: 0 auto; padding: 1.5rem 16px 3rem; display: flex; flex-direction: column; gap: 3rem; }
+@media (min-width: 720px) { .page { padding: 1.5rem 1.5rem 3rem; } }
+
+/* Header */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.brand img { width: 40px; height: 40px; border-radius: 9px; }
+.wordmark { font-weight: 700; font-size: 32px; letter-spacing: -0.03em; line-height: 1; color: var(--text); white-space: nowrap; }
+.wordmark .ship { background: var(--ship); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.top nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.5rem; font-weight: 600; }
+.top nav a { color: var(--text); text-decoration: none; padding: 10px 0; }
+.top nav a:hover { color: var(--primary); }
+
+/* Hero */
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
+.hero-copy { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+.eyebrow { font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; color: var(--primary); text-transform: uppercase; }
+.hero h1 { margin: 0; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.06; letter-spacing: -1px; text-wrap: balance; }
+.lead { margin: 0; font-size: 1.2rem; line-height: 1.55; color: var(--muted); max-width: 34rem; }
+.tagline { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--text); }
+.stores { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.store { display: inline-flex; flex-direction: column; justify-content: center; min-height: 54px; padding: 0 20px; border-radius: 16px; background: var(--store); color: var(--storeText); line-height: 1.2; }
+.store small { font-size: 0.78rem; opacity: 0.8; }
+.store strong { font-size: 1.02rem; }
+.promise { margin: 0; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; }
+.promise svg { color: var(--green); flex: none; }
+
+/* The phone in the hero */
+.phone-wrap { flex: 1 1 300px; display: flex; justify-content: center; }
+.phone { width: 340px; max-width: 100%; background: var(--bg); border: 10px solid var(--frame); border-radius: 46px; padding: 24px 14px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 40px 70px -40px rgba(15, 23, 42, 0.55); }
+.card { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); }
+.plan { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.plan .k { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--green); }
+.plan .date { font-size: 34px; line-height: 1; font-weight: 700; color: var(--green); }
+.plan .sub { font-size: 14px; color: var(--muted); }
+.meter { position: relative; height: 10px; border-radius: 5px; background: var(--track); overflow: hidden; margin-top: 4px; }
+.meter span { position: absolute; left: 0; top: 0; bottom: 0; width: 35%; border-radius: 5px; background: linear-gradient(90deg, #1E63D6, #34C759); }
+.split { display: flex; justify-content: space-between; font-size: 13px; }
+.split .paid { color: var(--green); font-weight: 600; }
+.split .togo { color: var(--muted); }
+.debtcard { border: 2px solid transparent; border-radius: 22px; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(90deg, #EF4444, #F97316) border-box; box-shadow: var(--shadow); padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 8px; }
+.debtcard .row1 { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.debtcard h3 { margin: 0; font-size: 18px; font-weight: 600; }
+.debtcard .amt { font-size: 19px; font-weight: 700; }
+.badges { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.badge { display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 8px; background: var(--sv2); color: var(--muted); font-size: 13px; font-weight: 600; }
+.badge.focus { background: var(--focusBg); color: var(--focusText); }
+.badges .apr { font-size: 14px; color: var(--muted); }
+.flight { position: relative; height: 32px; }
+.flight .bar { position: absolute; left: 0; right: 40px; top: 11px; height: 10px; border-radius: 5px; background: var(--track); }
+.flight .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 40%; border-radius: 5px; background: linear-gradient(90deg, #EF4444, #F97316); }
+.flight .dot { position: absolute; top: 2px; width: 6px; height: 6px; border-radius: 3px; background: var(--dot); }
+.flight .dot.hit { background: #FFD23F; box-shadow: 0 0 0 1.5px rgba(146, 64, 14, 0.55); }
+.flight .ship { position: absolute; top: -11px; left: calc(40% - 22px); width: 32px; height: 32px; }
+.flight .trophy { position: absolute; right: 0; top: 0; width: 32px; height: 32px; filter: grayscale(1); opacity: 0.45; }
+.split.small { font-size: 14px; margin-top: -4px; }
+.split .pct { color: var(--orange); font-weight: 600; }
+
+/* Figures */
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
+.figure { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.figure .n { font-size: 2.2rem; font-weight: 700; }
+.figure .t { font-size: 1rem; line-height: 1.45; color: var(--muted); }
+.source { margin: -2.2rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+/* Features */
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.feature { display: flex; flex-direction: column; gap: 0.7rem; }
+.feature h2 { margin: 0; font-size: 1.35rem; }
+.feature p { margin: 0; font-size: 1.02rem; line-height: 1.55; color: var(--muted); }
+.icon { width: 52px; height: 52px; border-radius: 16px; background: var(--card); box-shadow: var(--shadow); color: var(--primary); display: inline-flex; align-items: center; justify-content: center; }
+.icon.help { color: var(--green); }
+.icon.space { background-color: #050A26; background-image: url("images/stars-dark-a.png"), url("images/stars-dark-b.png"), linear-gradient(180deg, #0A1440, #03061A); background-size: 192px 192px, 128px 128px, 100% 100%; }
+.soon { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: var(--sv2); color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; vertical-align: middle; }
+
+/* The space band: drifting stars, and the ship flying to each trophy in turn */
+.band { position: relative; overflow: hidden; border-radius: 28px; padding: 2.2rem 1.4rem 1.8rem; color: #E2E8F0; background-color: #050A26; background-image: url("images/stars-dark-a.png"), url("images/stars-dark-b.png"), linear-gradient(180deg, #0A1440, #03061A); background-size: 192px 192px, 128px 128px, 100% 100%; image-rendering: pixelated; }
+@media (min-width: 720px) { .band { padding: 2.4rem; } }
+.band.moving { animation: drift 60s linear infinite; }
+@keyframes drift { to { background-position: -192px 0, -128px 0, 0 0; } }
+.band-top { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; }
+.band-copy { flex: 999 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+.band-copy .arc { font-size: 0.85rem; color: #FFD23F; }
+.band-copy h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.15; color: #FFFFFF; }
+.band-copy p { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #C9D3F5; max-width: 34rem; }
+.shelf { flex: 1 1 300px; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+.shelf img { display: block; transition: filter 400ms ease, opacity 400ms ease, transform 400ms ease; }
+.shelf .locked img { filter: grayscale(1) brightness(0.8); opacity: 0.4; }
+.shelf .won img { transform: translateY(-2px); }
+.lane { position: relative; margin-top: 2rem; height: 64px; }
+.lane .bar { position: absolute; left: 0; right: 76px; top: 27px; height: 10px; border-radius: 5px; background: #2A3158; }
+.lane .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 5px; background: linear-gradient(90deg, #EF4444, #F97316); }
+.lane .dot { position: absolute; top: 2px; width: 6px; height: 6px; margin-left: -3px; border-radius: 3px; background: #4A5384; transition: background 200ms; }
+.lane .dot.hit { background: #FFD23F; box-shadow: 0 0 0 1.5px rgba(146, 64, 14, 0.55); }
+.lane .ship { position: absolute; top: -27px; left: 0; width: 64px; height: 64px; margin-left: -56px; }
+.lane .goal { position: absolute; right: 0; top: 0; width: 64px; height: 64px; transition: filter 400ms ease, opacity 400ms ease; }
+.lane .goal.locked { filter: grayscale(1) brightness(0.8); opacity: 0.4; }
+.lane .spark { position: absolute; top: -6px; width: 8px; height: 8px; margin-left: -4px; background: #FFE066; opacity: 0; pointer-events: none; }
+.lane .spark.go { animation: spark 420ms steps(4) forwards; }
+@keyframes spark { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-14px) scale(0.5); } }
+.pause { position: absolute; right: 12px; top: 12px; width: 44px; height: 44px; border: 0; border-radius: 22px; background: rgba(10, 14, 39, 0.55); color: #E2E8F0; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.pause:hover { background: rgba(10, 14, 39, 0.8); }
+.pause:focus-visible { outline-color: #00D4FF; }
+
+/* Footer */
+.foot { box-shadow: inset 0 1px 0 0 var(--line); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.95rem; color: var(--muted); }
+.foot p { margin: 0; max-width: 44rem; line-height: 1.5; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+.foot nav a { padding: 6px 0; }
