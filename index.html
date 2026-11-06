@@ -88,30 +88,42 @@
         </section>
 
         <section class="band" id="band" aria-label="When you win">
-            <button class="pause" id="pause" type="button" aria-pressed="false" aria-label="Pause the animation" hidden>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" id="pause-icon"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
-            </button>
-            <div class="band-top">
-                <div class="band-copy">
-                    <span class="arc">WHEN YOU WIN</span>
-                    <h2>Every debt you clear becomes a trophy.</h2>
-                    <p>Checkpoints at 25, 50 and 75%, a boss for every kind of debt, and a Trophy Room for everything you've cleared. The rest of MoneyShip stays calm and clear.</p>
-                </div>
-                <ul class="shelf" id="shelf" aria-label="Some of the trophies">
-                    <li><img class="pix" src="images/trophy-little-alien.png" alt="Little Alien trophy" width="64" height="64"></li>
-                    <li><img class="pix" src="images/trophy-rocket.png" alt="Rocket trophy" width="64" height="64"></li>
-                    <li><img class="pix" src="images/trophy-satellite.png" alt="Satellite trophy" width="80" height="80"></li>
-                    <li><img class="pix" src="images/trophy-space-station.png" alt="Space Station trophy" width="96" height="96"></li>
-                    <li><img class="pix" src="images/trophy-spiral-galaxy.png" alt="Spiral Galaxy trophy" width="80" height="80"></li>
-                </ul>
+            <div class="band-copy">
+                <span class="arc">WHEN YOU WIN</span>
+                <h2>Pay off a debt, win a trophy. Reach a goal, reach a destination.</h2>
+                <p>Checkpoints at 25, 50 and 75%, a boss for every kind of debt, and a Trophy Room for everything you've cleared. The rest of MoneyShip stays calm and clear.</p>
             </div>
-            <div class="lane" id="lane" aria-hidden="true">
-                <div class="bar">
-                    <span class="fill" id="fill"></span>
-                    <span class="dot" style="left: 25%"></span><span class="dot" style="left: 50%"></span><span class="dot" style="left: 75%"></span>
-                    <img class="pix ship" id="ship" src="images/ship.png" alt="">
+            <div class="worlds">
+                <div class="world" id="debts">
+                    <span class="arc tag">DEBTS</span>
+                    <h3>Every debt you clear becomes a trophy.</h3>
+                    <ul class="shelf" aria-label="Some of the trophies">
+                        <li><img class="pix" src="images/trophy-little-alien.png" alt="Little Alien trophy" width="56" height="56"></li>
+                        <li><img class="pix" src="images/trophy-rocket.png" alt="Rocket trophy" width="56" height="56"></li>
+                        <li><img class="pix" src="images/trophy-satellite.png" alt="Satellite trophy" width="64" height="64"></li>
+                        <li><img class="pix" src="images/trophy-space-station.png" alt="Space Station trophy" width="72" height="72"></li>
+                        <li><img class="pix" src="images/trophy-spiral-galaxy.png" alt="Spiral Galaxy trophy" width="64" height="64"></li>
+                    </ul>
+                    <div class="lane" aria-hidden="true">
+                        <div class="bar"><span class="fill"></span><span class="dot" style="left: 25%"></span><span class="dot" style="left: 50%"></span><span class="dot" style="left: 75%"></span><img class="pix ship" src="images/ship.png" alt=""></div>
+                        <img class="pix goal" src="images/trophy-little-alien.png" alt="">
+                    </div>
                 </div>
-                <img class="pix goal" id="goal" src="images/trophy-little-alien.png" alt="">
+                <div class="world savings" id="savings">
+                    <span class="arc tag">SAVINGS</span>
+                    <h3>Every goal you reach becomes a destination: a real planet, picked by what you're saving for.</h3>
+                    <ul class="shelf planets" aria-label="Some of the destinations">
+                        <li><img class="pix" src="images/planet-europa.png" alt="Europa" width="56" height="56"><span>Rainy day</span></li>
+                        <li><img class="pix" src="images/planet-kepler-22b.png" alt="Kepler-22b" width="56" height="56"><span>Holiday</span></li>
+                        <li><img class="pix" src="images/planet-mars.png" alt="Mars" width="56" height="56"><span>Car</span></li>
+                        <li><img class="pix" src="images/planet-earth.png" alt="Earth" width="56" height="56"><span>Home</span></li>
+                        <li><img class="pix" src="images/planet-saturn.png" alt="Saturn" width="56" height="56"><span>Wedding</span></li>
+                    </ul>
+                    <div class="lane" aria-hidden="true">
+                        <div class="bar"><span class="fill"></span><span class="dot" style="left: 25%"></span><span class="dot" style="left: 50%"></span><span class="dot" style="left: 75%"></span><img class="pix ship" src="images/ship.png" alt=""></div>
+                        <img class="pix goal" src="images/planet-europa.png" alt="">
+                    </div>
+                </div>
             </div>
         </section>
     </main>

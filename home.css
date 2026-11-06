@@ -109,34 +109,39 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline
 .icon.space { background-color: #050A26; background-image: url("images/stars-dark-a.png"), url("images/stars-dark-b.png"), linear-gradient(180deg, #0A1440, #03061A); background-size: 192px 192px, 128px 128px, 100% 100%; }
 .soon { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: var(--sv2); color: var(--muted); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; vertical-align: middle; }
 
-/* The space band: drifting stars, and the ship flying to each trophy in turn */
-.band { position: relative; overflow: hidden; border-radius: 28px; padding: 2.2rem 1.4rem 1.8rem; color: #E2E8F0; background-color: #050A26; background-image: url("images/stars-dark-a.png"), url("images/stars-dark-b.png"), linear-gradient(180deg, #0A1440, #03061A); background-size: 192px 192px, 128px 128px, 100% 100%; image-rendering: pixelated; }
+/* The space band: drifting stars, and in each half the ship flies along its
+   path to the next trophy or planet, lighting the checkpoints on the way */
+.band { position: relative; overflow: hidden; border-radius: 28px; padding: 2.2rem 1.2rem 1.6rem; color: #E2E8F0; background-color: #050A26; background-image: url("images/stars-dark-a.png"), url("images/stars-dark-b.png"), linear-gradient(180deg, #0A1440, #03061A); background-size: 192px 192px, 128px 128px, 100% 100%; image-rendering: pixelated; display: flex; flex-direction: column; gap: 1.8rem; }
 @media (min-width: 720px) { .band { padding: 2.4rem; } }
 .band.moving { animation: drift 60s linear infinite; }
 @keyframes drift { to { background-position: -192px 0, -128px 0, 0 0; } }
-.band-top { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; }
-.band-copy { flex: 999 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+.band-copy { display: flex; flex-direction: column; gap: 0.8rem; max-width: 46rem; }
 .band-copy .arc { font-size: 0.85rem; color: #FFD23F; }
-.band-copy h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.15; color: #FFFFFF; }
-.band-copy p { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #C9D3F5; max-width: 34rem; }
-.shelf { flex: 1 1 300px; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+.band-copy h2 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; color: #FFFFFF; }
+.band-copy p { margin: 0; font-size: 1.05rem; line-height: 1.55; color: #C9D3F5; }
+.worlds { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.2rem; }
+.world { border-radius: 20px; padding: 1.2rem 1.1rem 1rem; background: rgba(10, 14, 39, 0.55); box-shadow: inset 0 0 0 1px rgba(79, 227, 255, 0.18); display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; }
+.world .tag { font-size: 0.8rem; color: #F97316; }
+.world.savings .tag { color: #22D3EE; }
+.world h3 { margin: 0; font-size: 1.15rem; line-height: 1.35; color: #FFFFFF; font-weight: 600; }
+.shelf { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-end; gap: 0.6rem; list-style: none; margin: 0; padding: 0; min-height: 80px; }
+.shelf li { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.shelf li span { font-size: 0.78rem; color: #A9B6E6; }
 .shelf img { display: block; transition: filter 400ms ease, opacity 400ms ease, transform 400ms ease; }
 .shelf .locked img { filter: grayscale(1) brightness(0.8); opacity: 0.4; }
 .shelf .won img { transform: translateY(-2px); }
-.lane { position: relative; margin-top: 2rem; height: 64px; }
-.lane .bar { position: absolute; left: 0; right: 76px; top: 27px; height: 10px; border-radius: 5px; background: #2A3158; }
+.lane { position: relative; height: 64px; margin-top: 0.4rem; }
+.lane .bar { position: absolute; left: 0; right: 72px; top: 27px; height: 10px; border-radius: 5px; background: #2A3158; }
 .lane .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 5px; background: linear-gradient(90deg, #EF4444, #F97316); }
+.world.savings .lane .fill { background: linear-gradient(90deg, #10B981, #06B6D4); }
 .lane .dot { position: absolute; top: 2px; width: 6px; height: 6px; margin-left: -3px; border-radius: 3px; background: #4A5384; transition: background 200ms; }
 .lane .dot.hit { background: #FFD23F; box-shadow: 0 0 0 1.5px rgba(146, 64, 14, 0.55); }
-.lane .ship { position: absolute; top: -27px; left: 0; width: 64px; height: 64px; margin-left: -56px; }
+.lane .ship { position: absolute; top: -19px; left: 0; width: 48px; height: 48px; margin-left: -42px; }
 .lane .goal { position: absolute; right: 0; top: 0; width: 64px; height: 64px; transition: filter 400ms ease, opacity 400ms ease; }
 .lane .goal.locked { filter: grayscale(1) brightness(0.8); opacity: 0.4; }
 .lane .spark { position: absolute; top: -6px; width: 8px; height: 8px; margin-left: -4px; background: #FFE066; opacity: 0; pointer-events: none; }
 .lane .spark.go { animation: spark 420ms steps(4) forwards; }
 @keyframes spark { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-14px) scale(0.5); } }
-.pause { position: absolute; right: 12px; top: 12px; width: 44px; height: 44px; border: 0; border-radius: 22px; background: rgba(10, 14, 39, 0.55); color: #E2E8F0; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
-.pause:hover { background: rgba(10, 14, 39, 0.8); }
-.pause:focus-visible { outline-color: #00D4FF; }
 
 /* Footer */
 .foot { box-shadow: inset 0 1px 0 0 var(--line); padding-top: 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.95rem; color: var(--muted); }
