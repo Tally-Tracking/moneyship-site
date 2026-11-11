@@ -23,7 +23,7 @@
 
         <main>
             <h1>Analytics events</h1>
-            <p class="muted">Last updated: 6 November 2026</p>
+            <p class="muted">Last updated: 11 November 2026</p>
             <p class="lead">This is the full list of usage events the MoneyShip app sends to its analytics provider, PostHog (EU Cloud, Frankfurt), while analytics is on. Our <a href="privacy.html">privacy policy</a> links here, and we update this page whenever an event is added, removed or changed. MoneyShip was previously called Tally.</p>
 
             <h2>What we collect</h2>
@@ -38,6 +38,8 @@
                 <li>Anything you type into the app</li>
                 <li>Your phone's advertising ID or hardware identifiers</li>
                 <li>Which free debt-advice service you open</li>
+                <li>Which benefit check, bill help or other link you open in Find money first</li>
+                <li>Anything that says you might be finding money hard, such as the "Things are hard right now" switch or calm mode</li>
             </ul>
             <p>If you spot anything below that breaks these rules, that's a bug: please email <a href="mailto:moneyshipapp@gmail.com">moneyshipapp@gmail.com</a> and we'll fix it.</p>
 
@@ -73,13 +75,22 @@
             <div class="table-wrap"><table>
                 <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
                 <tbody>
-                    <tr><td><code>app_launched</code></td><td>The app starts</td><td>Whether it was a fresh start; your phone's language setting; how many active debts you have, as a range (0, 1, 2, 3, or 4 or more), never an amount</td></tr>
-                    <tr><td><code>session_started</code></td><td>You come back to the app after more than 30 seconds away</td><td>Minutes since you last used it; how many active debts, as a range</td></tr>
+                    <tr><td><code>app_launched</code></td><td>The app starts</td><td>Whether it was a fresh start; your phone's language setting; how many active debts you have, as a range (0, 1, 2, 3, or 4 or more), never an amount; whether a monthly budget for your debts is saved (yes or no, never the amount)</td></tr>
+                    <tr><td><code>session_started</code></td><td>You come back to the app after more than 30 seconds away</td><td>Minutes since you last used it; how many active debts, as a range; whether a monthly budget for your debts is saved (yes or no)</td></tr>
                     <tr><td><code>app_backgrounded</code></td><td>You leave the app</td><td>How long you used it, in seconds</td></tr>
                     <tr><td><code>tab_selected</code></td><td>You change tab</td><td>Which tab you went to and from: Plan, Debts, Savings, Bills or Tools</td></tr>
-                    <tr><td><code>screen_viewed</code></td><td>A screen other than a tab opens, such as Settings, the take-home calculator, a form or Free help</td><td>Which screen; for the calculator, whether it's the UK or custom version. Opening Free help sends this once and nothing else: never which service you open</td></tr>
+                    <tr><td><code>screen_viewed</code></td><td>A screen other than a tab opens, such as Settings, the take-home calculator, a form, Free help, Find money first or the monthly budget for your debts</td><td>Which screen; for the calculator, whether it's the UK or custom version. Opening Free help or Find money first sends this once and nothing else: never which service, check or link you open</td></tr>
                     <tr><td><code>notification_tapped</code></td><td>You tap one of the app's reminders (Android only for now)</td><td>Which kind: bill reminders, missed bill alerts or debt reminders</td></tr>
-                    <tr><td><code>deep_link_opened</code></td><td>The app is opened from a link (iPhone only for now)</td><td>The link's address without anything after a "?"</td></tr>
+                    <tr><td><code>deep_link_opened</code></td><td>The app is opened from one of its own links: on iPhone any of them, including the sign-in links in our emails; on Android the Debt-Free January link</td><td>The link's address, without anything after a "?" or "#"</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>Setting up the app</h3>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>onboarding_step_viewed</code></td><td>A step of the first-time setup comes on screen, the first time it does (going back and forward again sends nothing more)</td><td>Which step: Welcome or Add your debts</td></tr>
+                    <tr><td><code>onboarding_completed</code></td><td>Once, when the first-time setup finishes, or when signing in during setup finishes it</td><td>How it ended: with debts added, with no debts, or by restoring your account; how many debts were added, as a range (0, 1, 2, 3, or 4 or more); which payoff plan was picked (snowball, avalanche or none); whether reminders were turned on, turned off, refused by the phone or not asked about; whether a starter savings goal was added; whether you chose to hide your debt total; how the budget for your debts was worked out, if one was set. Never an amount or a debt's name</td></tr>
                 </tbody>
             </table></div>
 
@@ -87,7 +98,7 @@
             <div class="table-wrap"><table>
                 <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
                 <tbody>
-                    <tr><td><code>debt_added</code></td><td>A debt is saved</td><td>How it was added (by hand)</td></tr>
+                    <tr><td><code>debt_added</code></td><td>A debt is saved</td><td>How it was added: by hand, or during the app's first-time setup (one event for each debt added there)</td></tr>
                     <tr><td><code>debt_payment_logged</code></td><td>A payment is recorded on a debt, by you or by auto-pay</td><td>Who recorded it (you or auto-pay); the payment's share of the balance, as a range (under 5%, 5 to 25%, 25 to 50%, 50 to 99%, or all of it); whether it crossed 25, 50, 75 or 100% paid off</td></tr>
                     <tr><td><code>debt_strategy_changed</code></td><td>You switch between snowball and avalanche</td><td>Which one you switched from and to</td></tr>
                     <tr><td><code>debt_budget_set</code></td><td>You save the monthly money for your debts</td><td>How you worked it out (one number, one outgoings figure, or the cost lines); whether it's per month, week, fortnight or four weeks; whether you said your outgoings include your debt payments. Never the amount, and never whether it covers your payments</td></tr>
@@ -103,7 +114,31 @@
             <div class="table-wrap"><table>
                 <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
                 <tbody>
-                    <tr><td><code>celebration_finished</code></td><td>A debt celebration closes: the 25, 50 and 75% checkpoints, and the 100% "final blow"</td><td>Which one (25, 50, 75 or 100); how it closed: for the checkpoints, a tap or by itself; for the final blow, held to fire, tapped, fired by itself, or skipped. Never the debt's name, type or an amount</td></tr>
+                    <tr><td><code>celebration_finished</code></td><td>A debt celebration closes: the 25, 50 and 75% checkpoints, and the 100% "final blow". In calm mode, the plain notice that stands in for a checkpoint sends it too</td><td>Which one (25, 50, 75 or 100); how it closed: for the checkpoints, a tap or by itself; for the final blow, held to fire, tapped, fired by itself, or skipped. Never the debt's name, type or an amount</td></tr>
+                    <tr><td><code>rating_requested</code></td><td>The app asks your phone to show the App Store or Google Play rating box, as a debt's final blow closes (at most once in 120 days, and never in calm mode)</td><td>What led to it: clearing a debt. Your phone doesn't tell the app whether the box showed, and nothing you rate or write in it reaches us</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>The Trophy Room</h3>
+            <p>Every debt you clear wins a trophy. These events count how the room is used: never a debt's name, type or amount, and never which trophy.</p>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>trophy_room_opened</code></td><td>The Trophy Room opens</td><td>Where it was opened from (for now, the "View Trophy Room" button after you clear a debt); how many trophies are on show, as a range (0, 1, 2 to 4, 5 to 9, or 10 or more)</td></tr>
+                    <tr><td><code>trophy_viewed</code></td><td>You open a trophy in the room</td><td>Whether you'd pinned it to one of the room's three slots</td></tr>
+                    <tr><td><code>trophy_pinned</code>, <code>trophy_unpinned</code></td><td>You pin a trophy to one of the room's three slots, or take it off</td><td>Which slot (1, 2 or 3)</td></tr>
+                    <tr><td><code>trophy_hidden</code>, <code>trophy_unhidden</code></td><td>You hide a trophy, or show it again</td><td>Nothing else</td></tr>
+                </tbody>
+            </table></div>
+
+            <h3>Debt-Free January</h3>
+            <p>The challenge card on Plan, shown from 15 December to 7 February. Never a debt's name, an amount, or anything Find money first found.</p>
+            <div class="table-wrap"><table>
+                <thead><tr><th>Event</th><th>When it's sent</th><th>What it carries</th></tr></thead>
+                <tbody>
+                    <tr><td><code>challenge_task_completed</code></td><td>A challenge task is done, once for each task</td><td>Which challenge (for example Debt-Free January 2027); which task: list every debt, set the money for your debts, check for money you might be missing, or log one extra payment</td></tr>
+                    <tr><td><code>challenge_completed</code></td><td>Every task of the challenge is done</td><td>Which challenge</td></tr>
+                    <tr><td><code>challenge_hidden</code></td><td>You hide the challenge card</td><td>Which challenge; how many of its four tasks were done</td></tr>
                 </tbody>
             </table></div>
 
@@ -113,7 +148,7 @@
                 <tbody>
                     <tr><td><code>auth_state_changed</code></td><td>You sign in or out</td><td>Signed in or out; how (Apple, Google, email or none)</td></tr>
                     <tr><td><code>analytics_consent_changed</code></td><td>You turn Share usage analytics on or off</td><td>On or off; where (onboarding or Settings)</td></tr>
-                    <tr><td><code>setting_changed</code></td><td>You turn a Settings switch on or off</td><td>Which switch (dark mode, bill tracking, bill reminders, missed bill alerts or debt reminders); on or off</td></tr>
+                    <tr><td><code>setting_changed</code></td><td>You turn a Settings switch on or off</td><td>Which switch (dark mode, bill tracking, bill reminders, missed bill alerts or debt reminders); on or off. Calm mode isn't one of them: turning it on or off sends nothing</td></tr>
                     <tr><td><code>notification_permission_answered</code></td><td>Your phone asks whether MoneyShip may send notifications, and you answer</td><td>Allowed or not; where the question came from</td></tr>
                     <tr><td><code>sync_failed</code></td><td>Backing up or syncing your data fails</td><td>The kind of problem (network, timeout, sign-in, conflict, server or other); whether it was sending or receiving. Never the error's text</td></tr>
                 </tbody>
